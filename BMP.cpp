@@ -25,6 +25,15 @@ public :
 
 int i;
 int j;
+	
+	bank()
+	{
+	i=0;
+	j=0;
+	for(int k=0;k<50;k++)
+	ary[k].balance=0;
+
+	}
 
 	void create_account()
 	{
@@ -52,7 +61,44 @@ int j;
 	getch();
 	i++;
 	}
+	
+	void account_detail()
+	{
+	long a ;
+	char b[20];
 
+	cout<<"\n\n ENTER THE ACCOUNT NO WHOSE DETAIL YOU WANT TO SEE : ";
+	cin>>a;
+	cout<<"\n\n ENTER THE PASSWORD : ";
+	gets(b) ;
+	clrscr();
+	cout<<"\n THE DETAILS OF THE ACCOUNT NO "<<a<<" ARE AS : ";
+	for(int k=0;k<50;k++)
+	if(a==ary[k].account)
+	break;
+	cout<<"\n\n NAME               : ";
+	puts(ary[k].name);
+	cout<<"\n FATHER'S  NAME     : ";
+	puts(ary[k].father);
+	cout<<"\n DATE OF BIRTH      : ";
+	puts(ary[k].birth) ;
+	cout<<"\n GENDER             : ";
+	puts(ary[k].gender);
+	cout<<"\n ADDRESS            : ";
+	puts(ary[k].address);
+	cout<<"\n PHONE NO.          : ";
+	puts(ary[k].phone) ;
+	cout<<"\n ACCOUNT TYPE (C/S) : ";
+	puts(ary[k].type);
+	cout<<"\n YOUR ACCOUNT NO       : ";
+	cout<<ary[k].account;
+	cout<<"\n\n YOUR ACCOUNT PASSWORD : ";
+	puts(ary[k].password);
+	cout<<"\n CURRENT BALANCE : ";
+	cout<<ary[k].balance;
+	getch();
+	j++;
+	}
 	
 	void withdraw()
 	{
@@ -114,9 +160,10 @@ do
 clrscr();
 cout<<"\n\t\t\t\t HOME PAGE ";
 cout<<"\n\n 1. CREATE AN ACCOUNT ";
-cout<<"\n\n 2. WITHDRAW MONEY ";
-cout<<"\n\n 3. DEPOSITE MONEY ";
-cout<<"\n\n 4. EXIT ";
+cout<<"\n\n 2. ACCOUNT HOLDER DETAIL";
+cout<<"\n\n 3. WITHDRAW MONEY ";
+cout<<"\n\n 4. DEPOSITE MONEY ";
+cout<<"\n\n 5. EXIT ";
 
 cout<<"\n\n ENTER YOUR CHOICE (1-5) : ";
 cin>>n;
@@ -127,13 +174,19 @@ case 1 : clrscr();
 	 b.create_account();
 	 break;
 case 2 : clrscr();
-	 b.withdraw();
+	 b.account_detail();
 	 break;
 case 3 : clrscr();
+	 b.withdraw();
+	 break;
+case 4 : clrscr();
 	 b.deposite();
 	 break;
 case 5 : clrscr();
 	 cout<<"\n\n\n\n\n\n\n\t\t\t THANKS FOR USING THE PRORAM ! ";
+	 getch();
+	 clrscr();
+	 cout<<"\n\n\n\n\n\n\n\t\t\t\t A PROJECT BY SAURABH and GAURAV  ";
 	 getch();
 	 exit(1);
 }
